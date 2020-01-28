@@ -61,8 +61,12 @@
 <body>
 
     <div class="sidenav">
+        <form method="GET" action="http://dev.mobivat.com:8080/vsdc_module/mobivat/api/product/productId?">
+            <input type="text" name="upc" size="40" maxlength="256" placeholder="enter upc" class="form-control">
+            <input type="submit" name="search_button" value="Search Product" class="btn btn-success mt-2">
+        </form>
         <a href="addcustomer.html">Add customer</a>
-        <a href="customers.html">View Customers</a>
+        <a href="customers.html">All Customers</a>
         <a href="signup.html">Sign Up</a>
         <a href="login.html">Login</a>
         <a href="logout.html">Logout</a>
