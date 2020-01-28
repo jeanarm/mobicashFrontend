@@ -3,9 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Mobicash</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -35,8 +38,9 @@
     </script>
 </head>
 
-<body>
-    <table id="tabledata" border="1" style="border-collapse:collapse">
+<body width="50%">
+    <h1>All Customers</h1>
+    <table id="tabledata" class="table table-dark">
         <thead>
             <tr>
                 <th>Name</th>
@@ -47,5 +51,6 @@
         <tbody></tbody>
     </table>
 </body>
+<a href="index.html" class="btn btn-dark mt-2 mb-2">Back home</a>
 
 </html>

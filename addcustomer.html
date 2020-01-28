@@ -6,6 +6,10 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             var customer = {};
@@ -31,27 +35,32 @@
     </script>
 </head>
 
+
+
 <body>
-    <table border="1" style="border-collapse:collapse" class="table">
+
+    <h1>New Customer</h1>
+    <table border="1 " style="border-collapse:collapse " class="table">
         <tr>
             <td>Name</td>
-            <td><input id="name" type="text" /></td>
+            <td><input id="name " type="text " class="form-control " /></td>
         </tr>
         <tr>
             <td>Phone</td>
-            <td><input id="phone" type="text" /></td>
+            <td><input id="phone " type="text " class="form-control" /></td>
         </tr>
         <tr>
             <td>Address</td>
-            <td><input id="address" type="text" /></td>
+            <td><input id="address " type="text " class="form-control " /></td>
         </tr>
 
         <tr>
-            <td colspan="2">
-                <input type="button" id="btnAddCustomer" value="Add Customer" />
+            <td colspan="2 ">
+                <input type="button " id="btnAddCustomer " value="Add Customer " class="btn btn-success mt-2 mb-2" />
             </td>
         </tr>
     </table>
+    <a href="index.html" class="btn btn-dark mt-2 mb-2">Back home</a>
 </body>
 
 </html>
