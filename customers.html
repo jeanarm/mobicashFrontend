@@ -19,6 +19,7 @@
 
         function getCustomers() {
             $.ajax({
+
                 url: 'http://localhost:3000/api/v1/customers',
                 method: 'GET',
                 dataType: 'json',
@@ -35,10 +36,36 @@
                 }
             });
         }
+        $(document).ready(function() {
+            $('#search').click(function() {
+                // var key = $('#upc').val();
+                $.ajax({
+                    // url: 'http://dev.mobivat.com:8080/vsdc_module/mobivat/api/product/productId?upc=224444445',
+                    url: 'http://localhost:3000/api/v1/customers',
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(dat) {
+                        var tableBody = $('#tabledat tbody');
+                        tableBody.empty();
+                        $(dat).each(function(index, element) {
+                            tableBody.append('<tr>');
+                            tableBody.append('<td>' + element.name + '</td>' + '<td>' + element.upc + '</td>' + '<td>' + element.pname + '</td>' + '<td>' + element.unitp + '</td>', '');
+                        })
+                    },
+                    error: function(error) {
+                        alert(JSON.stringify(error));
+                    }
+                })
+            })
+        });
     </script>
 </head>
 
 <body width="50%">
+    <form>
+        <input type="text" id="upc" name="upc" size="40" maxlength="256" placeholder="enter upc" class="form-control mt-5">
+        <input type="submit" name="search_button" id="searchButton" value="Search Product" class="btn btn-success mt-2">
+    </form>
     <h1>All Customers</h1>
     <table id="tabledata" class="table table-dark">
         <thead>
@@ -50,6 +77,22 @@
         </thead>
         <tbody></tbody>
     </table>
+    <input type="submit" name="search_button" id="search" value="Product" class="btn btn-success mt-2">
+    <h1>Product details</h1>
+    <table id="tabledat" class="table table-dark">
+        <thead>
+            <tr>
+                <th style="color:green">Product Sku</th>
+                <th style="color:green"> Product upc</th>
+                <th style="color:green">Product name</th>
+                <th style="color:green">Unit Price</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+
+
 </body>
 <a href="http://localhost:3000/api/v1/customerpdf" class="btn btn-success mt-2 mb-2">Download Pdf</a>
 <a href="index.html" class="btn btn-dark mt-2 mb-2">Back home</a>

@@ -5,6 +5,7 @@
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -88,29 +89,65 @@
         }
     </style>
 
-
-
 </head>
 
 <body>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#searchButton').click(function() {
+                console.log("clicked");
+                var key = $('#upc').val();
+                $.ajax({
+                    url: 'http://dev.mobivat.com:8080/vsdc_module/mobivat/api/product/productId?upc=$key',
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        var tableBody = $('#tabledata tbody');
+                        tableBody.empty();
+                        $(data).each(function(index, element) {
+                            tableBody.append('<tr>');
+                            tableBody.append('<td>' + element.sku + '</td>' + '<td>' + element.upc + '</td>' + '<td>' + element.pname + '</td>' + '<td>' + element.unitp + '</td>', '');
+                        })
+                    },
+                    error: function(error) {
+                        alert(error);
+                    }
+                })
+            })
+        });
+    </script>
+
     <div class="topnav">
         <a href="login.html">Login</a>
-        <a href="logout.html">Logout</a>
     </div>
-
-    <div class="sidenav">
-        <form method="GET" action="http://dev.mobivat.com:8080/vsdc_module/mobivat/api/product/productId?">
-            <input type="text" name="upc" size="40" maxlength="256" placeholder="enter upc" class="form-control mt-5">
-            <input type="submit" name="search_button" value="Search Product" class="btn btn-success mt-2">
+    < <div class="sidenav">
+        <form>
+            <input type="text" id="upc" name="upc" size="40" maxlength="256" placeholder="enter upc" class="form-control mt-5">
+            <input type="submit" name="search_button" id="searchButton" value="Search Product" class="btn btn-success mt-2">
         </form>
+
         <a href="addcustomer.html"> Add customer</a>
         <a href="customers.html"> All Customers</a>
         <a href="signup.html">Sign Up</a>
-    </div>
+        </div>
 
-    <div class="main">
-        <img src="cust.jpg" width="102%">
-    </div>
+        <div class="main">
+            <img src="cust.jpg" width="102%">
+        </div>
+        <h1>Product details</h1>
+        <table id="tabledata" class="table table-dark">
+            <thead>
+                <tr>
+                    <th style="color:green">Product Sku</th>
+                    <th style="color:green"> Product upc</th>
+                    <th style="color:green">Product name</th>
+                    <th style="color:green">Unit Price</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+
 
 
 

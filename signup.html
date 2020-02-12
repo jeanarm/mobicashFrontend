@@ -25,7 +25,7 @@
                     data: userJSON,
                     contentType: "application/json; charset=utf-8",
                     success: function() {
-                        alert(' Signed in successfully!');
+                        alert('success!');
                     },
                     error: function(error) {
                         alert(error);
@@ -41,19 +41,19 @@
     <table border="1" class="table">
         <tr>
             <td>Name</td>
-            <td><input id="name" type="text" class="form-control" /></td>
+            <td><input id="name" type="text" class="form-control" required="true" /></td>
         </tr>
         <tr>
             <td>Email</td>
-            <td><input id="email" type="email" class="form-control" /></td>
+            <td><input id="email" type="email" class="form-control" required="true" /></td>
         </tr>
         <tr>
             <td>Password</td>
-            <td><input id="password" type="password" class="form-control" /></td>
+            <td><input id="password" type="password" class="form-control" required="true" /></td>
         </tr>
         <tr>
             <td>Password Confirmation</td>
-            <td><input id="password_confirmation" type="password" class="form-control" /></td>
+            <td><input id="password_confirmation" type="password" class="form-control" required="true" /></td>
         </tr>
         <tr>
             <td colspan="2">
